@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
     const url = req.url; // '/index.html?a=100'
     const path = url.split('?')[0]; //以?作为拆分，数组第一个元素是'/index.html'  
 
-    a()
+    //a()
 
     res.end(path);
 })
