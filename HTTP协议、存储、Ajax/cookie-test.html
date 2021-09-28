@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie 的封装</title>
+</head>
+
+<body>
+    <script type="module">
+        //引入 
+        import { set,get,remove } from './cookie.js'; 
+        //set 
+        set('username', 'lily'); 
+        set('username', 'kitty'); //cookie设置了修改了
+        set('age', 18); 
+        set('用户名', '小明'); 
+        set('sex','male',{
+            maxAge:30*24*3600 
+        });
+
+        //remove
+        remove('username');
+        remove('用户名');
+
+        //get 
+        console.log(get('username'));
+        console.log(get('age'));
+        console.log(get('用户名'));
+        console.log(get('sex'));
+        console.log(get('xxx'));
+    </script>
+</body>
+
+</html>

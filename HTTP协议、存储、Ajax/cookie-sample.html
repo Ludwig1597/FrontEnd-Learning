@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie 的实战</title>
+</head>
+
+<body>
+    <!-- 使用cookie完成网站语言的切换 -->
+    <button id="cn">中文</button>   
+    <button id="en">English</button>
+    <script type="module">
+        //引入 
+        import { set } from './cookie.js'; 
+        
+        //获取按钮
+        const cnBtn=document.getElementById('cn');
+        const enBtn=document.getElementById('en'); 
+
+        //添加事件
+        cnBtn.addEventListener('click',()=>{
+            set('language','cn',{
+                maxAge:30*24*3600
+            });
+            // 强制刷新
+            window.location='./cookie-sample.html';
+        },false);
+        enBtn.addEventListener('click',()=>{
+            set('language','en',{
+                maxAge:30*24*3600
+            });
+            window.location='./cookie-sample.html';
+        },false);
+    </script>
+</body>
+
+</html>
