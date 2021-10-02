@@ -87,9 +87,57 @@
 
 ### 初识JSON
 
+- JSON是什么
+  - JSON是Ajax发送和接收数据的一种格式
+  - 数据格式有很多种
+    - XML
+    - username=lily&age=18
+    - JSON 
+  - JSON全称是 JavaScript Object Notation，JavaScript对象表示法 
+- 为什么需要JSON
+  - JSON有三种形式，每种形式的写法都和JS中的数据类型很像，可以很轻松的和JS中的数据类型互相转换    
+  - JS->JSON->PHP/Java/Nodejs
+  - PHP/Java/Nodejs->JSON->JS
+
 ### JSON的三种形式
 
+Json文件的后缀名是 `.json`。
+- 简单值形式 [plain.json](../plain.json)
+  - JSON的简单值形式就对应着JS中的基础数据类型：数字、字符串、布尔值、null
+  - JSON中没有undefined值
+  - JSON中是不能注释的
+  - JSON中的字符串必须使用双引号
+- 对象形式 [obj.json](../obj.json)
+  - JSON的对象形式就对应着JS中的对象
+  - JSON中的对象的属性名必须用双引号，属性值如果是字符串也必须用双引号
+  - JSON中只要涉及到字符串，就必须使用双引号
+  - 不支持 undefined
+- 数组形式 [arr.json](../arr.json)
+  - JSON的数组形式就对应着JS中的数组
+  - 数组中的字符串必须用双引号
+  - JSON中只要涉及到字符串，就必须使用双引号
+  - 不支持undefined 
+
 ### JSON的常用方法
+
+- JSON.parse()
+  - JSON.parse()可以将 JSON 格式的字符串解析成 JS 中的对应值
+  - 一定要是合法的 JSON 字符串，否则会报错
+  - [ajax-test.html](../ajax-test.html)
+- JSON.stringify()
+  - JSON.stringify()可以将 JS 的基本数据类型、对象或者数组转换成 JSON 格式的字符串
+  ```javascript
+  console.log(
+      JSON.stringify({
+          username:'alex',
+          age:18
+      })
+  )
+  ```
+  - 这样ajax的send()中就能发送对象了，把我们要发的数据转换成JSON格式发送给服务端
+- 使用 JSON.parse() 和 JSON.stringify() 封装 localStorage
+  - [storage.js](./../storage.js)
+  - [json-test.html](./../json-test.html)
 
 ## 跨域
 

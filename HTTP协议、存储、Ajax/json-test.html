@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON的常用方法</title>
+</head>
+<body>
+    <script type="module">
+        import {get,set,remove,clear} from './storage.js';
+        set('username','lily');
+        console.log(get('username'));
+
+        set('zs',{
+            name:'张三',
+            age:18
+        });
+        console.log(get('zs'));
+
+        remove('username');
+        clear();
+    </script>
+</body>
+</html>
