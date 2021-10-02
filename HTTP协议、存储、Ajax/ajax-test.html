@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax-test</title>
+</head>
+<body>
+    <!-- 使用 ajax 完成前后端通信 -->
+    <script>
+        const url='https://www.imooc.com/api/http/search/suggest?words=js';
+        const xhr=new XMLHttpRequest();
+
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState===0){
+                console.log('has not init');
+                return;
+            }
+            if(xhr.readyState===1){
+                console.log('it started');
+                return;
+            }
+            if(xhr.readyState===2){
+                console.log('it sends');
+                return;
+            }
+            if(xhr.readyState==3){
+                console.log('it starts to receive response');
+                return;
+            }
+            //判断服务器是否出现问题
+            if(xhr.status>=200&&xhr.status<300||xhr.status===304){
+                console.log('it completed');  
+                console.log(xhr.responseText);
+                console.log(typeof xhr.responseText);
+            }
+        }
+
+        xhr.open('GET',url,true);//不要写false
+        xhr.send(null);
+    </script>
+</body>
+</html>
