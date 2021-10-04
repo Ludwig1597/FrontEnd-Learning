@@ -191,9 +191,44 @@ Json文件的后缀名是 `.json`。
 
 ### XHR的属性
 
+[xhr属性](../ajax-test.html)
+- responseType 和 response 属性
+- timeout属性   
+  设置请求的超时时间（单位 ms）
+- withCredentials属性   
+  指定使用 Ajax 发送请求时是否携带 Cookie   
+  使用 Ajax 发送请求，默认情况下，同域时，会携带 Cookie；跨域时，不会  
+  要想跨域时，会携带 Cookie，设置 `xhr.withCredentials=true`   
+  最终能否成功跨域携带 Cookie，还要看服务器同不同意
+
 ### XHR的方法
 
+- abort()
+  - 用于终止当前请求
+  - 一般配合同名的 abort 事件一起使用
+- setRequestHeader()
+  - 用于设置请求头信息
+  - xhr.setRequestHeader(头部字段的名称，头部字段的值);
+  - xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+  - xhr.setRequestHeader('Content-Type','application/json');
+
 ### XHR的事件
+
+- load事件
+  - 响应数据可用时触发
+  - 可用来替代onreadystatechange
+  - xhr.onload=()=>{}
+  - xhr.addEventListener('load',()=>{},false);
+  - IE6~8不支持load事件
+- error事件
+  - 请求发生错误时会触发，和响应无关
+  - IE10开始支持
+- abort事件
+  - 调用abort() 终止请求时触发
+  - IE10开始支持
+- timeout事件
+  - 请求超时后触发  
+  - IE8开始支持
 
 ## Ajax进阶
 

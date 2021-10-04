@@ -9,39 +9,48 @@
 <body>
     <!-- 使用 ajax 完成前后端通信 -->
     <script>
+        //跨域
         const url='https://www.imooc.com/api/http/search/suggest?words=js';
+        //同域
+        //cosnt url='./index.html';
         const xhr=new XMLHttpRequest();
 
-        xhr.onreadystatechange=()=>{
-            if(xhr.readyState===0){
-                console.log('has not init');
-                return;
-            }
-            if(xhr.readyState===1){
-                console.log('it started');
-                return;
-            }
-            if(xhr.readyState===2){
-                console.log('it sends');
-                return;
-            }
-            if(xhr.readyState==3){
-                console.log('it starts to receive response');
-                return;
-            }
-            //判断服务器是否出现问题
-            if(xhr.status>=200&&xhr.status<300||xhr.status===304){
+        xhr.addEventListener(
+            'load',
+            ()=>{
+                //判断服务器是否出现问题
+                if(xhr.status>=200&&xhr.status<300||xhr.status===304){
                 console.log('it completed');  
-                console.log(xhr.responseText);
+                //文本形式的响应内容
+                //responseText只能在没有设置responseType或者responseType=''或'text'的时候才能使用
+                //console.log(xhr.responseText);
+                //respnse可以用来替代responseText
+                //但是response不支持IE6～9，IE10开始支持
                 console.log(typeof xhr.responseText);
+                console.log(xhr.response);
 
                 console.log(JSON.parse(xhr.responseText));
                 console.log(JSON.parse(xhr.responseText).data);
-            }
-        }
-
+                }
+            },
+            false
+        );
+        xhr.addEventListener('error',()=>{
+            console.log('error');
+        },false)
         xhr.open('GET',url,true);//不要写false
+        //xhr.responseType = '';
+        //xhr.responseType = 'text';
+        xhr.withCredentials=true;
+        //withCredentials是IE10开始支持
+        xhr.responseType='json';
+        xhr.timeout=1000;
+        //timeout属性IE6-7不支持，IE8开始支持
+        //请求头中的Content-Type字段用来告诉服务器，浏览器发送的数据是什么格式
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        //xhr.setRequestHeader('Content-Type','application/json');
         xhr.send(null);
+        //xhr.abort();
     </script>
 </body>
 </html>
