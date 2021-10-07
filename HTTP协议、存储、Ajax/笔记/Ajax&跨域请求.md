@@ -234,9 +234,23 @@ Json文件的后缀名是 `.json`。
 
 ### FormData
 
+- 使用 Ajax&FormData 提交表单   
+  [FormData.html](../FormData.html)
+  
 ### 封装Ajax
 
+- ajax的封装 [ajax.js](./../ajax.js)
+- 默认参数 [defaults.js](./../defaults.js)
+- 工具函数 [utils.js](./../utils.js)
+- 常量 [constants.js](./../constants.js)
+- 再封装 [index.js](./../index.js)
+- 测试 [ajax-test2.js](./../ajax-test2.html)
+
 ### 使用Promise改造封装好的Ajax
+
+- [ajax_promise.js](./../ajax_promise.js)
+- [constants.js](./../constants.js)
+- [ajax_promise.html](./../ajax_promise.html)
 
 ## Ajax应用
 

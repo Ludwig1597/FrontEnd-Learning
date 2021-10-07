@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用ajax提交表单->FormData</title>
+</head>
+<body>
+    <form 
+      id='login'
+      action="https://www.imooc.com/api/http/search/suggest?words=js"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"  
+    >
+        <input type="text" name="username" placeholder="用户名" />
+        <input type="password" name="password" placeholder="密码" />
+        <input type="submit" id="submit" value="登陆" />
+    </form>
+    <script>
+        //1. 使用ajax提交表单 
+        //2. FormData基本用法
+        //   通过 HTML 表单元素创建 FormData 对象
+        //   const fd = new FormData(表单元素)；
+        //   xhr.send(fd);
+        //   通过apend方法添加数据
+        //   fd.append('age',18);
+        //   fd.append('sex',male);
+        //3. IE10及以上可以兼容FormData
+        const login=document.getElementById('login');
+        //console.log(login.username);
+        //console.log(login.password);//可以通过name获取字段
+        //解构赋值
+        const {username,password}=login;
+        const btn=document.getElementById('submit');
+        const url='https://www.imooc.com/api/http/search/suggest?words=js';
+        btn.addEventListener(
+            'click',
+            e=>{
+                //阻止表单自动提交
+                e.preventDefault();
+                //表单数据验证
+                //这里为了方便，不做验证了
+                //发送Ajax请求
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener(
+                    'load',
+                    ()=>{
+                        if(xhr.status>=200&&xhr.status<300||xhr.status===304){
+                            console.log(xhr.response);
+                        }
+                    },
+                    false
+                );
+                xhr.open('POST',url,true);
+                //xhr.send('username=lily&password=12345');
+                //组装数据
+                //const data=`username=${username.value}&password=${password.value}`;
+                //#### FormData 可用于发送表单数据 ####
+                const data=new FormData(login);
+                //console.log(data);
+                for(const item of data){
+                    console.log(item);
+                }
+                //模拟form表单的发送
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.send(data);
+            },
+            false
+        );
+    
+    </script>
+</body>
+</html>
