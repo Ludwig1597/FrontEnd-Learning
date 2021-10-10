@@ -256,12 +256,39 @@ Json文件的后缀名是 `.json`。
 
 ### 搜索提示
 
+[搜索提示.html](./../搜索提示.html)
+
 ### 二级菜单
 
+略。未写。
+
 ### 多个Ajax请求的并发执行
+
+略。未写。
 
 ## Ajax扩展
 
 ### axios库
 
+- axios 是什么
+  - axios是一个基于 Promise 的HTTP库，可以用在浏览器和 nodejs 中
+  - 简言之，一个第三方 Ajax 库
+  - 中文官方文档：http://www.axios-js.com/zh-cn/docs/
+- axios 的基本用法
+  - 引入 axios
+    - npm install axios
+    - <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  - console.log(axios);//看看是否成功引入
+  - [axios.html](../axios.html)
+
 ### Fetch
+
+- Fetch 是什么
+  - Fetch 也是前后端通信的一种方式
+  - Fetch 是 Ajax（XMLHttpRequest）的一种替代方案，它是基于 promise 的
+  - Ajax 的兼容性比 Fetch 好
+  - Fetch 不提供 abort、timeout等
+- Fetch 的基本用法
+  - console.log(fetch);
+  - fetch()调用后返回 Promise 对象
+  - [fetch.html](../fetch.html)

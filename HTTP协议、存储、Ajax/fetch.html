@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识fetch</title>
+</head>
+<body>
+    <script>
+        //body: (...)
+        //bodyUsed: false
+        //ok: true
+        //status: 200
+        //statusText: "OK"
+        //type: "cors"
+        //url: "https://www.imooc.com/api/http/search/suggest?words=js"
+        
+        const url='https://www.imooc.com/api/http/search/suggest?words=js';
+        //fetch第一个参数是url
+        //     第二个参数是对象，用来配置fetch
+        fetch(url,{
+            method:'post',
+            body:'username=lily&age=18',
+            headers:{
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            mode:'cors',
+            //credentials:'include'
+        })
+            .then(response=>{
+                //body/bodyUsed
+                //body只能读一次，读过之后就不让再读了
+
+                //ok
+                //如果为true，表示可以读取数据，不用再去判断 HTTP 状态码了
+                console.log(response);
+
+                if(response.ok){
+                    return response.json();
+                    //return response.text(); 
+                }else{
+                    throw new Error(`HTTP CODE 异常${response.status}`);
+                }
+            }).then(data=>{
+                console.log(data);
+            })
+            .catch(err=>{
+                console.log(err); 
+            })
+    </script>
+</body>
+</html>

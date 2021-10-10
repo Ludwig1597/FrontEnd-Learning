@@ -1,5 +1,4 @@
 import Ajax from './ajax.js'
-//引入常量
 import {
     ERROR_HTTP_CODE,
     ERROR_HTTP_CODE_TEXT,
@@ -10,7 +9,6 @@ import {
     ERROR_ABORT,
     ERROR_ABORT_TEXT
 } from './constants.js'
-
 const ajax=(url,options)=>{
     //return new Ajax(url,options).getXHR();
     //实例化promise构造函数，得到promise对象

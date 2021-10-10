@@ -114,10 +114,8 @@ class Ajax{
         if(!this.isSendData()){
             return xhr.send(null);
         }
-        
         let resultData=null;
         const {data} =this.options;
-
         //发送 FormData 格式的数据
         if(this.isFormData()){
             resultData=data;
