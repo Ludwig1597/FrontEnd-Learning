@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>then()</title>
+</head>
+<body>
+    <script>
+        const p=new Promise((resolve,reject)=>{
+            resolve();
+            //rejected();
+        });
+        const p2=p.then(
+            ()=>{
+                console.log('success');
+                //在 then 的回调函数中，return 后面的东西，会用 Promise 包装一下
+                //return 123;
+                //return new Promise(resolve => {
+                //    resolve(123);
+                //})
+
+                //默认返回的永远都是成功状态的Promise对象
+                return new Promise((resolve,reject)=>{
+                    reject('reason');
+                });
+            },
+            ()=>{
+                console.log('error');
+            }
+        ).then(
+            data=>{
+                console.log('success2',data);
+            },
+            err=>{
+                console.log('error2',err);
+            }
+        ).then();
+        console.log(p,p2);
+    </script>
+</body>
+</html>
