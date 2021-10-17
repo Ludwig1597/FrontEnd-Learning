@@ -2,6 +2,18 @@
 
 # Node.js 入门和使用
 
+## 准备工作
+
+### Node.js下载和安装
+
+- 下载安装   
+  - 网址：`nodejs.cn`
+- 学习使用控制台
+  - `node -v`
+  - `npm -v`
+  - `node`(control + c control + c 终止)
+- node.js初体验
+  
 ## 使用npm
 
 ### npm是什么
