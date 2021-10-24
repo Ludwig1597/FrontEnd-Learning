@@ -244,7 +244,7 @@ Json文件的后缀名是 `.json`。
 - 工具函数 [utils.js](./../utils.js)
 - 常量 [constants.js](./../constants.js)
 - 再封装 [index.js](./../index.js)
-- 测试 [ajax-test2.js](./../ajax-test2.html)
+- 测试 [ajax-test2.html](./../ajax-test2.html)
 
 ### 使用Promise改造封装好的Ajax
 

@@ -14,6 +14,6 @@ const server = http.createServer((req, res) => {
 
 server.listen(3000);
 console.log('server listening on 3000 port')
-    //在控制台中输入 node index.js 后 启动了本地的服务端，监听端口3000
-    //在浏览器中输入 localhost:3000 会有一根斜线/
-    //在浏览器中输入 localhost:3000/id/index.html?a=100 会显示 /id/index.html
+//在控制台中输入 node index.js 后 启动了本地的服务端，监听端口3000
+//在浏览器中输入 localhost:3000 会有一根斜线/
+//在浏览器中输入 localhost:3000/id/index.html?a=100 会显示 /id/index.html
