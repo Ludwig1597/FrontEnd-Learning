@@ -1,0 +1,2 @@
+index.js 负责数据库的连接
+user.js 创建User集合

@@ -10,9 +10,10 @@
     "author": "jaden",
     "license": "ISC",
     "dependencies": {
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "mongoose": "^6.0.12"
     },
     "devDependencies": {
-        "nodemon": "^2.0.13"
+        "nodemon": "^2.0.14"
     }
 }
