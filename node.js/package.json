@@ -10,6 +10,8 @@
     "author": "jaden",
     "license": "ISC",
     "dependencies": {
+        "art-template": "^4.13.2",
+        "dateformat": "^3.0.3",
         "lodash": "^4.17.21",
         "mongoose": "^6.0.12"
     },
